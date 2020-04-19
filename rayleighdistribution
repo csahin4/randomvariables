@@ -1,0 +1,31 @@
+clc;clear;clear all;
+
+n=10000;
+x1=1/2 * randn(n,1);
+x2=1/2 * randn(n,1);
+
+y=sqrt(x1.^2 + x2.^2);
+
+figure
+subplot(2,1,1)
+histogram(y,400,'Normalization','pdf');
+title('Histogram of Y')
+xlim([0 3])
+xlabel('X')
+ylabel('PDF of Y')
+
+subplot(2,1,2)
+v=linspace(0,3,10000);
+yy=4*v.*exp(-2.*v.^2);
+plot(v,yy)
+title('PDF Line of Y')
+xlabel('X')
+ylabel('PDF of Y')
+
+figure
+histogram(y,400,'Normalization','pdf');
+hold on, box on;
+plot(v,yy,'LineWidth',2)
+xlim([0 3])
+xlabel('X')
+ylabel('PDF of Y')
